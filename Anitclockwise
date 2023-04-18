@@ -1,0 +1,30 @@
+#include<reg51.h>
+sbit p=P3^0;
+sbit n=P3^2;
+void delay();
+void main()
+{
+	while(1)
+	{
+      p = 1;
+      n = 0;
+      delay();
+	    p = 0;
+      n = 1;
+      delay();
+  }
+}
+void delay()
+{
+	 unsigned i;
+	 for(i=0; i<50000;i++)
+		{
+     TMOD = 0x01;
+     TH0 = 0xDC;
+     TL0 = 0x01;
+     TR0 = 1;
+     while(TF0 == 1);
+     TR0 = 0;
+     TF0 = 0;
+   }
+}
