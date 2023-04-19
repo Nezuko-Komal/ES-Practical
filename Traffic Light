@@ -1,0 +1,38 @@
+#include<reg51.h>
+void delay(unsigned int count);
+sbit R=P3^0;
+sbit Y=P3^1;
+sbit G=P3^2;
+void main()
+{
+	while(1)
+	{
+		R = 1;
+		Y = 0;
+		G = 0;
+		delay(50000);
+		R = 0;
+		Y = 1;
+		G = 0;
+		delay(10000);
+		R = 0;
+		Y = 0;
+		G = 1;
+		delay(30000);
+	}
+}
+
+void delay(unsigned int count)
+{
+	 unsigned int i;
+	 for(i=0; i<count;i++)
+		{
+     TMOD = 0x01;
+     TH0 = 0xDC;
+     TL0 = 0x01;
+     TR0 = 1;
+     while(TF0 == 1);
+     TR0 = 0;
+     TF0 = 0;
+   }
+}
