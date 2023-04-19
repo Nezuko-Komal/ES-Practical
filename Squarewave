@@ -5,10 +5,11 @@ void main()
 {
 	while(1)
 	{
-      P3^0=1;
+      p=1;
       delay();
-		  P3^0=0;
+      p=0;
       delay();
+  }
   }
 }
 void delay()
