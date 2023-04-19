@@ -1,5 +1,6 @@
 #include<reg51.h>
 void delay();
+sbit p=P3^0;
 void main()
 {
 	while(1)
